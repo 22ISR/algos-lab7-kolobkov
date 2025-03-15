@@ -10,6 +10,15 @@
     isPalindrom("level") # True
     isPalindrom("hello") # False
 
+def isPalindrom(word):
+    import string
+    word = word.lower()
+    for punctuation in string.punctuation:
+    word = word.replace(punctuation, '')
+    word = word.replace(' ', '')
+    return word == word[::-1]
+    a = list(['hello', 'Искать Такси', 'list', 'level'])
+
 Задание №2
 
 Задание: Написать программу, которая принимает список слов и проверяет, какие из них являются палиндромами.
@@ -21,6 +30,15 @@
 Пример использования:
     isPalindromList(["hello", "list", "level"]) # ["level"]
 
+def isPalidromList(words):
+    Palindroms = []
+    for word in words:
+        if isPalindrom(word):
+            Palindroms.append(word)
+    return Palindroms
+print (a)
+print(isPalidromList(a))
+
 Задание №3
 
 Задание: Написать программу, которая ищет все палиндромы в строке текста.
@@ -28,6 +46,19 @@
 
     Программа должна игнорировать регистр и знаки пунктуации.
     Если палиндромы повторяются, выводить их только один раз.
+
+def isPalindromString(text):
+    import string
+    text = text.lower()
+    for punctuation in string.punctuation:
+        text = text.replace(punctuation, '')
+    text = text.replace(' ', '')
+
+    palindromes = {text for text in cleaned_text if isPalindrom(text) and text}
+    
+    return list(palindromes)
+
+print(isPalindromString("Madam, Anna went to the civic center"))
 
 Пример использования isPalindromString("Madam, Anna went to the civic center") # ["madam", "anna", "civic"]
 """
